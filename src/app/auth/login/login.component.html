@@ -1,0 +1,36 @@
+<nb-card accent="info">
+    <nb-card-header style="text-align: center;"><img  src="./assets/images/cemtics_logo.png" alt="cemtics_logo"></nb-card-header>
+    <nb-card-body class="example-items-col">
+        <form  [formGroup]="loginForm" (submit)="onSubmit()">
+
+            <nb-form-field>
+                <nb-icon nbPrefix icon="person-add" pack="eva"></nb-icon>
+                <input type="text" nbInput fullWidth status="primary" placeholder="Username" id="username" name="username"  formControlName="username">
+              </nb-form-field>
+
+            <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                <div *ngIf="username.errors?.required">Username is required.</div>
+              </div>
+            <br><br>
+            <nb-form-field>
+                <nb-icon nbPrefix icon="lock" pack="eva"></nb-icon>
+                <input type="password" nbInput fullWidth status="primary" placeholder="Password" id="password" name="password" formControlName="password">
+              </nb-form-field>
+            
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors?.required">Password is required.</div>
+              </div>
+            <br><br>
+            <nb-checkbox type="checkbox" formControlName="myCheckbox" status="primary">Remember Me</nb-checkbox>
+            <br><br>
+            <button nbButton type="submit" [disabled]="!loginForm.valid">Login</button>
+
+           
+
+              
+              
+        </form>
+        
+      </nb-card-body>
+  </nb-card>
+
